@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sector Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 30px;
+        }
+        input[type="text"] {
+            width: 300px;
+            padding: 8px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 600px;
+        }
+        th, td {
+            border: 1px solid #999;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h2>Sector Table</h2>
+
+    <form method="post">
+        <label for="sector_name">Sector Name:</label>
+        <input type="text" name="sector_name" id="sector_name" required>
+        <button type="submit">Add Sector</button>
+    </form>
+
+    <hr>
+
+    <table>
+        <tr>
+            <th>Sector ID</th>
+            <th>Sector Name</th>
+        </tr>
+        {% for item in data %}
+        <tr>
+            <td>{{ item.sector_id }}</td>
+            <td>{{ item.sector_name }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

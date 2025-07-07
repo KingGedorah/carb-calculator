@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Food Source</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h2 { color: #333; }
+        form { margin-bottom: 30px; }
+        input[type="text"], input[type="number"] {
+            width: 300px;
+            padding: 8px;
+            margin: 6px 0;
+        }
+        button {
+            padding: 8px 16px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 800px;
+        }
+        table, th, td {
+            border: 1px solid #999;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h2>Food Source Table</h2>
+
+    <form method="post">
+        <label for="food_id">ID:</label><br>
+        <input type="text" name="food_id" id="food_id"><br>
+
+        <label for="name_en">Name (EN):</label><br>
+        <input type="text" name="name_en" id="name_en"><br>
+
+        <label for="name_id">Name (ID):</label><br>
+        <input type="text" name="name_id" id="name_id"><br>
+
+        <label for="unit">Unit:</label><br>
+        <input type="text" name="unit" id="unit"><br>
+
+        <label for="emisi">Emisi (kg):</label><br>
+        <input type="number" name="emisi" step="any" id="emisi"><br>
+
+        <button type="submit">Add</button>
+    </form>
+
+    <hr>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name EN</th>
+            <th>Name ID</th>
+            <th>Unit</th>
+            <th>Emisi (kg)</th>
+        </tr>
+        {% for item in data %}
+        <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.name_en }}</td>
+            <td>{{ item.name_id }}</td>
+            <td>{{ item.unit }}</td>
+            <td>{{ item.emisi }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
